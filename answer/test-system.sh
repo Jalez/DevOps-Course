@@ -6,6 +6,34 @@
 echo "=== Docker Compose Microservices Exercise Test ==="
 echo ""
 
+# Function to check if command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Check prerequisites
+if ! command_exists docker; then
+    echo "❌ ERROR: Docker is not installed or not in PATH"
+    echo "💡 On Linux, you may need to install Docker or add user to docker group:"
+    echo "   sudo usermod -aG docker \$USER"
+    exit 1
+fi
+
+if ! command_exists docker-compose; then
+    echo "❌ ERROR: Docker Compose is not installed or not in PATH"
+    exit 1
+fi
+
+# Test docker permissions (common issue on Linux)
+if ! docker info >/dev/null 2>&1; then
+    echo "❌ ERROR: Cannot connect to Docker daemon"
+    echo "💡 On Linux, try one of these solutions:"
+    echo "   1. Add user to docker group: sudo usermod -aG docker \$USER"
+    echo "   2. Run with sudo: sudo $0"
+    echo "   3. Start Docker service: sudo systemctl start docker"
+    exit 1
+fi
+
 # Ensure vstorage directory exists
 echo "1. Ensuring vstorage directory exists..."
 mkdir -p ./vstorage

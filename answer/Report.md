@@ -126,6 +126,26 @@ mkdir -p ./vstorage
 
 This directory is required for the bind mount volume configuration.
 
+## Troubleshooting
+
+### Docker Permission Issues on Linux
+
+If you encounter permission errors when running Docker commands on Linux, you may need to:
+
+**Option 1: Add user to docker group (recommended for development)**
+```bash
+sudo usermod -aG docker $USER
+# Log out and log back in for changes to take effect
+```
+
+**Option 2: Use sudo with Docker commands**
+```bash
+sudo docker-compose up -d --build
+sudo docker-compose down
+```
+
+**Note**: The docker group approach is generally preferred for development environments, while sudo may be required in restricted environments.
+
 ## Running the Application
 
 To run the microservices system:

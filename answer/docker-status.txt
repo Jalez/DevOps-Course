@@ -1,19 +1,14 @@
-# Docker Status Information
-# This file contains the output of docker commands when services are running
-# Run these commands after 'docker-compose up' to capture actual output:
+# Docker Status Information (Captured Sun Sep 28 16:21:38 EEST 2025)
 
 # docker container ls
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+e8da79445e82   answer-service1   "python app.py"          39 seconds ago   Up 28 seconds   0.0.0.0:8199->8199/tcp, [::]:8199->8199/tcp   service1
+18635655deac   answer-service2   "docker-entrypoint.s…"   40 seconds ago   Up 28 seconds   3000/tcp                                      service2
+e3fbc5bfa778   answer-storage    "python app.py"          50 seconds ago   Up 28 seconds   5000/tcp                                      storage
+
 # docker network ls
-
-# Example output (replace with actual when services are running):
-
-# CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                    NAMES
-# abc123def456   answer_service1   "python app.py"          2 minutes ago   Up 2 minutes   0.0.0.0:8199->8199/tcp   service1
-# def456ghi789   answer_service2   "node app.js"            2 minutes ago   Up 2 minutes                            service2  
-# ghi789jkl012   answer_storage    "python app.py"          2 minutes ago   Up 2 minutes                            storage
-
-# NETWORK ID     NAME                DRIVER    SCOPE
-# xyz789abc123   answer_microservices-network   bridge    local
-# default        bridge              bridge    local
-# default        host                host      local
-# default        none                null      local
+NETWORK ID     NAME                           DRIVER    SCOPE
+4675eff23e17   answer_microservices-network   bridge    local
+2b4e914dacd3   bridge                         bridge    local
+46bf3500e54c   host                           host      local
+3d4f16618f2d   none                           null      local
