@@ -25,6 +25,10 @@ The LLM was used to assist with the implementation of the Docker Compose microse
 - **Volume Conflicts**: Resolved volume mounting conflicts that were overriding application files
 - **Service Communication**: Ensured proper inter-service communication via Docker networks
 
+### Automation Scripts
+- **cleanup.sh**: Created automated cleanup script for post-testing system cleanup, including Docker resource management
+- **test-system.sh**: Developed comprehensive testing script with Docker permission checks, system validation, and automated test execution
+
 ### Documentation
 - **Comprehensive Report**: Generated detailed technical report with system analysis
 - **Cleanup Instructions**: Provided clear instructions for system cleanup
@@ -51,6 +55,7 @@ The LLM was used to assist with the implementation of the Docker Compose microse
 
 The LLM was highly effective for:
 - ✅ Code generation and boilerplate creation
+- ✅ Automation script development
 - ✅ Problem diagnosis and resolution
 - ✅ Documentation and reporting
 - ✅ Best practices implementation
@@ -63,6 +68,7 @@ The LLM required human oversight for:
 
 Using the LLM significantly accelerated the development process and provided:
 - Comprehensive code examples
+- Automation and testing scripts
 - Effective problem-solving approaches
 - Professional documentation standards
 
