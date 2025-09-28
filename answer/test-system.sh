@@ -14,8 +14,7 @@ command_exists() {
 # Check prerequisites
 if ! command_exists docker; then
     echo "❌ ERROR: Docker is not installed or not in PATH"
-    echo "💡 On Linux, you may need to install Docker or add user to docker group:"
-    echo "   sudo usermod -aG docker \$USER"
+    echo "💡 Please install Docker first using your Linux distribution's package manager"
     exit 1
 fi
 
@@ -24,13 +23,10 @@ if ! command_exists docker-compose; then
     exit 1
 fi
 
-# Test docker permissions (common issue on Linux)
+# Test docker permissions
 if ! docker info >/dev/null 2>&1; then
     echo "❌ ERROR: Cannot connect to Docker daemon"
-    echo "💡 On Linux, try one of these solutions:"
-    echo "   1. Add user to docker group: sudo usermod -aG docker \$USER"
-    echo "   2. Run with sudo: sudo $0"
-    echo "   3. Start Docker service: sudo systemctl start docker"
+    echo "💡 Try running this script with sudo: sudo $0"
     exit 1
 fi
 

@@ -128,23 +128,25 @@ This directory is required for the bind mount volume configuration.
 
 ## Troubleshooting
 
-### Docker Permission Issues on Linux
+### Docker Permission Issues
 
-If you encounter permission errors when running Docker commands on Linux, you may need to:
+If you encounter permission errors with Docker commands, use `sudo`:
 
-**Option 1: Add user to docker group (recommended for development)**
 ```bash
-sudo usermod -aG docker $USER
-# Log out and log back in for changes to take effect
-```
+# Instead of:
+docker-compose up -d --build
 
-**Option 2: Use sudo with Docker commands**
-```bash
+# Use:
 sudo docker-compose up -d --build
 sudo docker-compose down
 ```
 
-**Note**: The docker group approach is generally preferred for development environments, while sudo may be required in restricted environments.
+For the test script, run:
+```bash
+sudo ./test-system.sh
+```
+
+**Note**: This assumes Docker is installed and running. If Docker is not installed, please install it first using your Linux distribution's package manager.
 
 ## Running the Application
 
