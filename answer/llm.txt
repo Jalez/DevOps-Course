@@ -1,0 +1,68 @@
+# LLM Usage Report
+
+## Used LLM Tool
+- **Tool**: Claude (Anthropic's AI Assistant)
+- **Version**: Claude 3.5 Sonnet
+- **Platform**: Cursor IDE integration 
+
+## Motivation/Reason to Use LLM
+
+The LLM was used to assist with the implementation of the Docker Compose microservices exercise. The primary motivations were:
+
+1. **Code Generation**: Generate boilerplate code for the three microservices (Python Flask, Node.js Express)
+3. **Problem Solving**: Debug and resolve technical issues during implementation
+4. **Documentation**: Generate comprehensive report
+
+## How and Why LLM Helped
+
+### Code Implementation
+- **Service1 (Python)**: Generated Flask application with proper HTTP client functionality, system status monitoring, and volume handling
+- **Service2 (Node.js)**: Created Express.js application with system status analysis and HTTP communication
+- **Storage Service**: Implemented REST API for log management with proper error handling
+
+### Problem Resolution
+- **Build Issues**: Fixed psutil compilation problems by adding required system dependencies
+- **Volume Conflicts**: Resolved volume mounting conflicts that were overriding application files
+- **Service Communication**: Ensured proper inter-service communication via Docker networks
+
+### Documentation
+- **Comprehensive Report**: Generated detailed technical report with system analysis
+- **Cleanup Instructions**: Provided clear instructions for system cleanup
+
+## Mistakes Made by LLM
+
+1. **Node.js Disk Space Measurement**:
+   - **Mistake**: Used `os.freemem()` in Service2
+   - **Impact**: Service2 reported memory instead of disk space
+
+
+## What LLM Was Not Able to Provide
+
+1. **Real-time System Testing**: 
+   - LLM could not directly test the running system
+   - Required manual verification of endpoints and functionality
+
+2. **Platform-specific Issues**:
+   - Could not anticipate ARM64-specific build issues
+   - Required iterative problem-solving for Apple Silicon compatibility
+
+
+## Overall Assessment
+
+The LLM was highly effective for:
+- ✅ Code generation and boilerplate creation
+- ✅ Problem diagnosis and resolution
+- ✅ Documentation and reporting
+- ✅ Best practices implementation
+
+The LLM required human oversight for:
+- 🔍 System testing and verification
+- 🔍 Platform-specific debugging
+
+## Learning Outcomes
+
+Using the LLM significantly accelerated the development process and provided:
+- Comprehensive code examples
+- Effective problem-solving approaches
+- Professional documentation standards
+

@@ -1,0 +1,48 @@
+services:
+  service1:
+    build: ./service1
+    container_name: service1
+    ports:
+      - "8199:8199"
+    environment:
+      - SERVICE2_URL=http://service2:3000
+      - STORAGE_URL=http://storage:5000
+    volumes:
+      - vStorage:/app/vstorage
+    depends_on:
+      - service2
+      - storage
+    networks:
+      - microservices-network
+
+  service2:
+    build: ./service2
+    container_name: service2
+    environment:
+      - STORAGE_URL=http://storage:5000
+    volumes:
+      - vStorage:/app/vstorage
+    depends_on:
+      - storage
+    networks:
+      - microservices-network
+
+  storage:
+    build: ./storage
+    container_name: storage
+    volumes:
+      - vStorage:/app/vstorage
+    networks:
+      - microservices-network
+
+volumes:
+  vStorage:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./vstorage
+
+networks:
+  microservices-network:
+    driver: bridge
