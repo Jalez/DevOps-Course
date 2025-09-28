@@ -5,7 +5,7 @@ import time
 import shutil
 import requests
 import psutil
-from datetime import datetime
+from datetime import datetime, timezone
 from flask import Flask, request, Response
 
 app = Flask(__name__)
@@ -40,7 +40,7 @@ def get_system_info():
     free_disk_mb = round(disk_usage.free / (1024 * 1024), 2)
 
     # Create timestamp in ISO 8601 format
-    timestamp = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
     return f"{timestamp}: uptime {uptime_hours} hours, free disk in root: {free_disk_mb} MBytes"
 
